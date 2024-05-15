@@ -6,22 +6,48 @@ function getInputValue(idname) {
     return amountt
 }
 
+function totalDepoWithd(idname, inputamount) {
+    const previousToal = document.getElementById(idname)
+    const previoustotaltext = previousToal.innerText
+    const previousToalAmount = parseFloat(previoustotaltext);
+    previousToal.innerText = inputamount + previousToalAmount
+}
+
+function UpdateBalance(Amount,is_add) {
+    const TotalBalance = document.getElementById('total_balance')
+    const TotalbalanceText = TotalBalance.innerText
+    const TotalBaanceAmount = parseFloat(TotalbalanceText)
+    // const updatedTotalBalanceAmount = 
+    if (is_add==true) {
+        TotalBalance.innerText = TotalBaanceAmount + Amount
+    }
+    else 
+    {
+        TotalBalance.innerText = TotalBaanceAmount - Amount 
+    }
+}
+
 // deposit part
 document.getElementById('deposit-button').addEventListener('click', function () {
     // const depositInput = document.getElementById('depositTK');
     // const depositamount = parseFloat(depositInput.value);
     const depositamount = getInputValue('deposit-input');
-    const previousDepositToalText = document.getElementById('Deposit-total').innerText
-    const previousDepositToalAmount = parseFloat(previousDepositToalText)
-    const updatedDepositTotal = depositamount + previousDepositToalAmount
 
-    const finalDepositTotalAmount = document.getElementById('Deposit-total').innerText = updatedDepositTotal
+    // const previousDepositToalText = document.getElementById('Deposit-total').innerText
+    // const previousDepositToalAmount = parseFloat(previousDepositToalText)
+    // const updatedDepositTotal = depositamount + previousDepositToalAmount
 
-    const ToalBalanceText = document.getElementById('toatl_balance').innerText
-    const ToalBalanceAmount = parseFloat(ToalBalanceText)
-    const updatedBalanceTotalAmount = ToalBalanceAmount + depositamount
+    // const finalDepositTotalAmount = document.getElementById('Deposit-total').innerText = updatedDepositTotal
 
-    const finalBalanceTotalAmount = document.getElementById('toatl_balance').innerText = updatedBalanceTotalAmount;
+    totalDepoWithd('Deposit-total', depositamount)
+
+    UpdateBalance(depositamount,true)
+
+    // const ToalBalanceText = document.getElementById('toatl_balance').innerText
+    // const ToalBalanceAmount = parseFloat(ToalBalanceText)
+    // const updatedBalanceTotalAmount = ToalBalanceAmount + depositamount
+
+    // const finalBalanceTotalAmount = document.getElementById('toatl_balance').innerText = updatedBalanceTotalAmount;
 
 });
 
@@ -34,18 +60,19 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
 
     const withdrawAmount = getInputValue('withdraw-input')
 
-    const withdrawtotalText = document.getElementById('withdrawTotal').innerText
-    const withdrawtotalamount = parseFloat(withdrawtotalText)
+    // const withdrawtotalText = document.getElementById('withdrawTotal').innerText
+    // const withdrawtotalamount = parseFloat(withdrawtotalText)
+    // const updatedwithdrawtotal = withdrawtotalamount + withdrawAmount
+    // const finaleitdrawAmount = updatedwithdrawtotal
+    // const finalWithdrawAmount = document.getElementById('withdrawTotal').innerText = finaleitdrawAmount
+    totalDepoWithd('withdraw-total', withdrawAmount)
+    UpdateBalance(withdrawAmount,false)
 
-    const updatedwithdrawtotal = withdrawtotalamount + withdrawAmount
-    const finaleitdrawAmount = updatedwithdrawtotal
-    const finalWithdrawAmount = document.getElementById('withdrawTotal').innerText = finaleitdrawAmount
+    // const toatl_balanceText = document.getElementById('toatl_balance').innerText
+    // const totalbalanceamount = parseFloat(toatl_balanceText)
+    // const afterWithdrawtotalBalance = totalbalanceamount - withdrawAmount
 
-    const toatl_balanceText = document.getElementById('toatl_balance').innerText
-    const totalbalanceamount = parseFloat(toatl_balanceText)
-    const afterWithdrawtotalBalance = totalbalanceamount - withdrawAmount
-
-    const finalBalanceafterWithdraw = document.getElementById('toatl_balance').innerText = afterWithdrawtotalBalance
+    // const finalBalanceafterWithdraw = document.getElementById('toatl_balance').innerText = afterWithdrawtotalBalance
 
 
 
