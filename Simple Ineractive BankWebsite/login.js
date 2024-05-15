@@ -12,7 +12,11 @@ document.getElementById('login-submit').addEventListener('click', function () {
     const userpass = passwordfield.value;
 
     if (userEmail == 'abc@gmail.com' && userpass == '123') {
-        window.location.href='banking.html'
+        window.location.href = 'banking.html'
     }
 
-})
+
+
+});
+
+
