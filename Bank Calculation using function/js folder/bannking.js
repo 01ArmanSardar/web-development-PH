@@ -13,17 +13,23 @@ function totalDepoWithd(idname, inputamount) {
     previousToal.innerText = inputamount + previousToalAmount
 }
 
-function UpdateBalance(Amount,is_add) {
+function getCurrentBalance() {
     const TotalBalance = document.getElementById('total_balance')
     const TotalbalanceText = TotalBalance.innerText
     const TotalBaanceAmount = parseFloat(TotalbalanceText)
-    // const updatedTotalBalanceAmount = 
-    if (is_add==true) {
-        TotalBalance.innerText = TotalBaanceAmount + Amount
+    return TotalBaanceAmount
+}
+function UpdateBalance(Amount, is_add) {
+    const TotalBalance = document.getElementById('total_balance')
+    // const TotalbalanceText = TotalBalance.innerText
+    // const TotalBaanceAmount = parseFloat(TotalbalanceText)
+    const pretotalbalance = getCurrentBalance()
+
+    if (is_add == true) {
+        TotalBalance.innerText = pretotalbalance + Amount
     }
-    else 
-    {
-        TotalBalance.innerText = TotalBaanceAmount - Amount 
+    else {
+        TotalBalance.innerText = pretotalbalance - Amount
     }
 }
 
@@ -38,10 +44,10 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     // const updatedDepositTotal = depositamount + previousDepositToalAmount
 
     // const finalDepositTotalAmount = document.getElementById('Deposit-total').innerText = updatedDepositTotal
-
-    totalDepoWithd('Deposit-total', depositamount)
-
-    UpdateBalance(depositamount,true)
+    if (depositamount > 0) {
+        totalDepoWithd('Deposit-total', depositamount)
+        UpdateBalance(depositamount, true)
+    }
 
     // const ToalBalanceText = document.getElementById('toatl_balance').innerText
     // const ToalBalanceAmount = parseFloat(ToalBalanceText)
@@ -65,8 +71,11 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     // const updatedwithdrawtotal = withdrawtotalamount + withdrawAmount
     // const finaleitdrawAmount = updatedwithdrawtotal
     // const finalWithdrawAmount = document.getElementById('withdrawTotal').innerText = finaleitdrawAmount
-    totalDepoWithd('withdraw-total', withdrawAmount)
-    UpdateBalance(withdrawAmount,false)
+const curenttotalbalance=getCurrentBalance()
+    if (withdrawAmount > 0 && withdrawAmount<curenttotalbalance ) {
+        totalDepoWithd('withdraw-total', withdrawAmount)
+        UpdateBalance(withdrawAmount, false)
+    }
 
     // const toatl_balanceText = document.getElementById('toatl_balance').innerText
     // const totalbalanceamount = parseFloat(toatl_balanceText)
