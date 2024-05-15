@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h1 class="text-5xl text-center">Lets Take <span class="font-semibold text-purple-400">MooooooooNey</span></h1>
+    <main class="w-3/4 mx-auto">
+        <!-- deposit and withdraw display part -->
+        <div class="grid grid-cols-3 gap-4 mx-auto mt-8">
+            <div class=" bg-amber-400 p-8 text-center">
+                <h1 class="text-2xl text-white">deposit </h1>
+                <h3  class="text-4xl text-white"><span id="Deposit-total">00</span>$</h3>
+            </div>
+            <div class=" bg-lime-900 p-8  text-center">
+                <h1 class="text-2xl text-white">withdraw </h1>
+                <h3 class="text-4xl text-white"><span id="withdrawTotal">00</span>$</h3>
+            </div>
+            <div class=" bg-purple-600 p-8  text-center">
+                <h1 class="text-2xl text-white">balance </h1>
+                <h3 class="text-4xl text-white"><span id="toatl_balance">1000</span>$</h3>
+            </div>
+
+        </div>
+        <div class="grid grid-cols-2 gap-4 ">
+
+            <div class="bg-lime-500 mt-4">
+                <h1 class="text-4xl p-4">deposit here</h1>
+                <input class="border-2 block mx-4 w-3/4" type="text"  id="deposit-input" placeholder="typer our deposit amount">
+                <button  id="deposit-button" class="border bg-emerald-500 mx-4 mt-2 p-2 text-white mb-2 rounded-md " >deposit</button>
+            </div>
+
+            <div class="bg-pink-800 mt-4">
+                <h1 class="text-4xl p-4">withdraw here</h1>
+                <input class="border-2 block mx-4 w-3/4" type="text" name="" id="withdraw-input" placeholder="typer your withdraw amount">
+                <button id="withdraw-button" class="border bg-emerald-500 mx-4 mt-2 p-2 text-white mb-2 rounded-md "> withdraw</button>
+            </div>
+        </div>
+
+        <!-- deposit and wihdraw part  -->
+
+    </main>
+    <script src="/js folder/banking.js"></script>
+</body>
+
+</html>
