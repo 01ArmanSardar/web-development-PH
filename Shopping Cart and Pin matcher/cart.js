@@ -12,10 +12,28 @@ function updateDetalis(button_id, QuantityId, price, Total, is_plus) {
         const productToal = document.getElementById(Total)
 
         productToal.innerText = ProductQuantityNumber * price
+        totalcaluclate()
     })
 
 
 }
+function getInputValue(product) {
+    const input = document.getElementById(product + '-number');
+    const Number = parseInt(input.value);
+    return Number
+}
+
+function totalcaluclate() {
+    const PhoneTotal = getInputValue('phone') * 1219;
+    const caseTotal = getInputValue('case') * 59;
+    const subTotal=PhoneTotal+caseTotal
+    const Tax=subTotal/10
+    const Total=subTotal+Tax
+    document.getElementById('sub-total').innerText=subTotal
+    document.getElementById('tax').innerText=Tax
+    document.getElementById('Total').innerText=Total
+}
+
 increaseCaseDetails = updateDetalis('plus-button-case', 'case-number', 59, 'case-total', true)
 decraseCaseDetails = updateDetalis('minus-button-case', 'case-number', 59, 'case-total', false)
 
