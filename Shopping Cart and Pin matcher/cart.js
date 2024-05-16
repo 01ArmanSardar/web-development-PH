@@ -1,23 +1,26 @@
 console.log('js File added');
 
-function updateCaseNumber(button_id, is_plus) {
+function updateDetalis(button_id, QuantityId, price, Total, is_plus) {
     document.getElementById(button_id).addEventListener('click', function () {
-        const caseQuantity = document.getElementById('case-number')
-        let caseQuantityNumber = caseQuantity.value;
-        if (is_plus == true) {caseQuantityNumber  = parseInt(caseQuantityNumber) + 1 }
-        else if (caseQuantityNumber > 0) {
-            caseQuantityNumber  = parseInt(caseQuantityNumber) - 1
+        const productQuantity = document.getElementById(QuantityId)
+        let ProductQuantityNumber = productQuantity.value;
+        if (is_plus == true) { ProductQuantityNumber = parseInt(ProductQuantityNumber) + 1 }
+        else if (ProductQuantityNumber > 0) {
+            ProductQuantityNumber = parseInt(ProductQuantityNumber) - 1
         }
-        caseQuantity.value=caseQuantityNumber
-        const caseTotal = document.getElementById('case-total')
-    
-    caseTotal.innerText = caseQuantityNumber * 59
+        productQuantity.value = ProductQuantityNumber
+        const productToal = document.getElementById(Total)
+
+        productToal.innerText = ProductQuantityNumber * price
     })
-    
+
 
 }
-increaseCaseNumber = updateCaseNumber('plus-button-case', true)
-decraseCaseNumber = updateCaseNumber('minus-button-case', false)
+increaseCaseDetails = updateDetalis('plus-button-case', 'case-number', 59, 'case-total', true)
+decraseCaseDetails = updateDetalis('minus-button-case', 'case-number', 59, 'case-total', false)
+
+increasePhonedetails = updateDetalis('phone-plus', 'phone-number', 1219, 'phone-total', true)
+decreasePhonedetails = updateDetalis('phone-minus', 'phone-number', 1219, 'phone-total', false)
 
 // document.getElementById('plus-button-case').addEventListener('click', function () {
 //     const caseQuantity = document.getElementById('case-number')
