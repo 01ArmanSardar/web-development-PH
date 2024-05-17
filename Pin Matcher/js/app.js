@@ -31,3 +31,19 @@ document.getElementById('keypad').addEventListener('click', function (event) {
         CalcInput.value = newNumber
     }
 })
+
+document.getElementById('submit').addEventListener('click', function () {
+    const pin = document.getElementById('Display-Pin').value
+    const calNumber = document.getElementById('typed-numbers').value
+    const sucessmesage = document.getElementById('notify-success');
+    const errormesage = document.getElementById('notify-fail');
+    if (pin == calNumber) {
+
+        sucessmesage.style.display = 'block';
+        errormesage.style.display = 'none';
+    }
+    else {
+        sucessmesage.style.display = 'none';
+        errormesage.style.display = 'block';
+    }
+})
