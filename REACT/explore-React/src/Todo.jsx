@@ -5,7 +5,7 @@
 // }
 
 //......................................................................
-// Conditional Renderign way 1
+// Conditional Rendering way 1
 // export default function Todo({ task, isDone }) {
 //     if (isDone === true) {
 //         return (
@@ -59,14 +59,14 @@
 
 //..................................................................................
 //Conditional Rendering part 6:
-export default function Todo({task,isDone}) {
-    let listItem;
-    if (isDone) {
-        listItem = <li>finish {task}</li>
+// export default function Todo({task,isDone}) {
+//     let listItem;
+//     if (isDone) {
+//         listItem = <li>finish {task}</li>
 
-    }
-    else {
-        listItem = <li>work on {task}</li>
-    }
-    return listItem
-}
+//     }
+//     else {
+//         listItem = <li>work on {task}</li>
+//     }
+//     return listItem
+// }

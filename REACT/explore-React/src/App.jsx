@@ -2,16 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Todo from './Todo'
-Todo
+// import Todo from './Todo'
+// Todo
+import Actor from './Actor'
 function App() {
   const [count, setCount] = useState(0)
-
+  const actors = ['sakibKhan', 'Manna', 'Salman Khan', 'spiderman'];
   return (
     <>
-    <Todo task="learn react" isDone={true}></Todo>
+    
+      <Actor name="BappaRaz"></Actor>
+      {
+        // Rendering using map
+        actors.map(actor => <Actor name={actor}></Actor>)
+      }
+      {/* <Todo task="learn react" isDone={true}></Todo>
     <Todo task="explore React" isDone={false}></Todo>
-    <Todo task="try jsx" isDone={true}></Todo>
+    <Todo task="try jsx" isDone={true}></Todo> */}
       <Person></Person>
       <Student></Student>
       <Device name="laptop" price="56k"></Device>
@@ -39,7 +46,7 @@ function Device(props) {
 
 
 // const { name, job } = { name, job }
-function Person({name='x',job='x'}/*amrah name,job parameter gulu 3rd baket a neor karone automatic Destructuring hoie geche*/) {
+function Person({ name = 'x', job = 'x' }/*amrah name,job parameter gulu 3rd baket a neor karone automatic Destructuring hoie geche*/) {
   // const name = "arman"
   // const age = '24'
   return (
