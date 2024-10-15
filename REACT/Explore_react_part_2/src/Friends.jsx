@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 export default function Friends() {
-    const [friends, setFriends] = useState([])
+    const [friends, setFriends] = useState([]) // akhne useState([]) a aktah empty array deor karon holo amrah api tekeh je data gulu load korbho seh data gulu array format a ache manhe aktah array er moddei aceh,tai default value hisebhe aktah empty array dilam, Akhne fetch korah data gulu jodi kono object er moddeh taktoh tahole default hiesehbhe aktha empty { } object ditam,
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(res => res.json())
