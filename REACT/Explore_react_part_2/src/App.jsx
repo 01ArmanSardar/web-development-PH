@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Counter from './counter'
 import Team from './Team'
+import Users from './user'
+import Friends from './Friends'
 function App() {
   const [count, setCount] = useState(0)
   // Way 01 of handel events 
@@ -21,6 +23,9 @@ function App() {
   return (
     <>
       <div>
+        <h1>userEffect in React</h1>
+        <Users></Users>
+        <Friends></Friends>
         <h1>2. State in React</h1>
         <Counter></Counter>
         <Team></Team>
