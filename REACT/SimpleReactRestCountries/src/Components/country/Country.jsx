@@ -9,9 +9,9 @@ const Country = ({country}) => {
         SetVisited(!visited)
     }
     return (
-        <div className='CountryCss'>
+        <div className={`CountryCss ${visited && 'visitedCountrey'}`}> {/* akhne amarh conditional css er kaj korlam */} 
 
-            <h4>Country: {name.common}</h4>
+            <h4 style={{color:visited?'yellow':'black'}}>Country: {name.common}</h4> {/* akhne amrha conditional style er kaj korlam */}
             <img src={flags.png} alt="flags" />
             <button onClick={Visithandeller}>{visited?'visitd':'not visitd'}</button>
             <h5>
