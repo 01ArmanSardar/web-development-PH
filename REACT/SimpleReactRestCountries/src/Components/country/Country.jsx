@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Country.css'
-const Country = ({country}) => {
+const Country = ({country,handelVisitedlist}) => {
     const {name,flags}=country
     console.log(country);
     const [visited,SetVisited]=useState(false)
@@ -8,6 +8,9 @@ const Country = ({country}) => {
     {
         SetVisited(!visited)
     }
+
+    const passWithParams =()=> handelVisitedlist(country)
+    // console.log(handelVisitedlist);
     return (
         <div className={`CountryCss ${visited && 'visitedCountrey'}`}> {/* akhne amarh conditional css er kaj korlam */} 
 
@@ -17,6 +20,8 @@ const Country = ({country}) => {
             <h5>
                 {visited?'visited ok':'not visited'}
             </h5>
+            <br />
+            <button onClick={passWithParams}>mark visited</button>
             
         </div>
     )
