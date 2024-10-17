@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "brand": "Rolex",
+      "model": "Submariner",
+      "price": 15000,
+      "features": {
+        "material": "Stainless Steel",
+        "movement": "Automatic",
+        "water_resistance": "300m",
+        "diameter": "40mm",
+        "strap": "Oyster"
+      },
+      "stock": true
+    },
+    {
+      "id": 2,
+      "brand": "Omega",
+      "model": "Speedmaster",
+      "price": 5500,
+      "features": {
+        "material": "Stainless Steel",
+        "movement": "Manual Winding",
+        "water_resistance": "50m",
+        "diameter": "42mm",
+        "strap": "NATO"
+      },
+      "stock": true
+    },
+    {
+      "id": 3,
+      "brand": "Tag Heuer",
+      "model": "Carrera",
+      "price": 4000,
+      "features": {
+        "material": "Ceramic",
+        "movement": "Automatic",
+        "water_resistance": "100m",
+        "diameter": "43mm",
+        "strap": "Leather"
+      },
+      "stock": false
+    },
+    {
+      "id": 4,
+      "brand": "Seiko",
+      "model": "Prospex",
+      "price": 1200,
+      "features": {
+        "material": "Titanium",
+        "movement": "Solar",
+        "water_resistance": "200m",
+        "diameter": "44mm",
+        "strap": "Rubber"
+      },
+      "stock": true
+    },
+    {
+      "id": 5,
+      "brand": "Casio",
+      "model": "G-Shock",
+      "price": 150,
+      "features": {
+        "material": "Resin",
+        "movement": "Quartz",
+        "water_resistance": "200m",
+        "diameter": "48mm",
+        "strap": "Resin"
+      },
+      "stock": true
+    }
+  ]
+  
