@@ -1,0 +1,7 @@
+.BottleContainer img{
+    width: 250px;
+}
+
+.BottleContainer{
+    border: 2px solid gray;
+}

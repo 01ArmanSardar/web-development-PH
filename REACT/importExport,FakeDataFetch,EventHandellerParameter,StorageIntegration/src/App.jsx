@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Sunglass from './Components/sunglass/sunglass'
 import Watch from './Components/watch/Watch'
+import Bottles from './ShoppingCart/Bottels/Bottles'
 
 function App() {
   const [watches, setWatch] = useState([]);
@@ -16,11 +17,13 @@ function App() {
   return (
     <>
 
-      {
+      {/* {
         watches.map(watch => <Watch key={watch.id} watch={watch}></Watch>)
         
-      }
+      } */}
       <Sunglass></Sunglass>
+      <Bottles></Bottles>
+      
 
 
     </>
