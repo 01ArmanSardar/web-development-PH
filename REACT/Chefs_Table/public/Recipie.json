@@ -1,0 +1,104 @@
+[
+    {
+      "img": "https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 1,
+      "name": "Grilled Chicken with Basil",
+      "description": "A delicious and healthy grilled chicken recipe with fresh basil and garlic.",
+      "ingredients": [
+        "550 g chicken",
+        "120 ml soy sauce",
+        "200 g basil leaf",
+        "3 cloves garlic",
+        "1 tbsp olive oil",
+        "1 tbsp lemon juice"
+      ],
+      "preparing_time": "30 min",
+      "calories": "320 calories"
+    },
+    {
+      "img": "https://images.pexels.com/photos/691114/pexels-photo-691114.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 2,
+      "name": "Vegan Pasta Primavera",
+      "description": "A vibrant, vegetable-packed vegan pasta dish perfect for any season.",
+      "ingredients": [
+        "400 g spaghetti",
+        "200 g cherry tomatoes",
+        "150 g zucchini",
+        "1 red bell pepper",
+        "100 g spinach",
+        "2 tbsp olive oil",
+        "2 cloves garlic"
+      ],
+      "preparing_time": "25 min",
+      "calories": "250 calories"
+    },
+    {
+      "img": "https://images.pexels.com/photos/3171129/pexels-photo-3171129.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 3,
+      "name": "Beef Stir-fry with Vegetables",
+      "description": "Quick and easy beef stir-fry with a mix of vibrant vegetables and a savory sauce.",
+      "ingredients": [
+        "500 g beef strips",
+        "1 onion",
+        "200 g broccoli",
+        "150 g carrots",
+        "120 ml soy sauce",
+        "1 tbsp sesame oil",
+        "2 tsp cornstarch"
+      ],
+      "preparing_time": "20 min",
+      "calories": "400 calories"
+    },
+    {
+      "img": "https://images.pexels.com/photos/9095/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
+      "id": 4,
+      "name": "Shrimp Tacos with Avocado",
+      "description": "Tasty shrimp tacos topped with fresh avocado and a tangy slaw.",
+      "ingredients": [
+        "300 g shrimp",
+        "8 corn tortillas",
+        "1 avocado",
+        "100 g cabbage",
+        "1 lime",
+        "1 tbsp chili powder",
+        "1 tsp cumin"
+      ],
+      "preparing_time": "15 min",
+      "calories": "290 calories"
+    },
+    {
+      "img": "https://images.pexels.com/photos/12077979/pexels-photo-12077979.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 5,
+      "name": "Chocolate Fudge Cake",
+      "description": "A rich and decadent chocolate fudge cake perfect for special occasions.",
+      "ingredients": [
+        "250 g flour",
+        "200 g sugar",
+        "150 g cocoa powder",
+        "3 eggs",
+        "100 g butter",
+        "200 ml milk",
+        "1 tsp vanilla extract"
+      ],
+      "preparing_time": "45 min",
+      "calories": "450 calories"
+    },
+    {
+      "img": "https://images.pexels.com/photos/20123610/pexels-photo-20123610/free-photo-of-bread-with-hummus-slice-of-salmon-boiled-egg-and-spices.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 6,
+      "name": "Classic Caesar Salad",
+      "description": "A fresh and crunchy Caesar salad with a zesty dressing and crispy croutons.",
+      "ingredients": [
+        "300 g romaine lettuce",
+        "50 g parmesan cheese",
+        "100 g croutons",
+        "1 garlic clove",
+        "1 egg",
+        "2 tbsp olive oil",
+        "1 tsp Dijon mustard"
+      ],
+      "preparing_time": "10 min",
+      "calories": "220 calories"
+    }
+  ]
+  
