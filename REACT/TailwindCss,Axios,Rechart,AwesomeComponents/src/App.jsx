@@ -1,12 +1,13 @@
 
 import './App.css'
+import DaisyNav from './Components/DaisyNav/DaisyNav'
 
 function App() {
  
 
   return (
     <>
-  <h2>setup react tailwind and daisyui</h2>
+  <DaisyNav></DaisyNav>
     </>
   )
 }
