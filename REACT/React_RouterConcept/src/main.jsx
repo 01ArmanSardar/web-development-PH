@@ -10,6 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Users from './components/Users/Users.jsx'
+import UserDetails from './components/UserDetails/UserDetails.jsx'
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
         path: "/users",
         element: <Users />,
         loader:()=>fetch('https://jsonplaceholder.typicode.com/users')
+      },
+      {
+        path: "/user/:userId",// akhen : ai sign tar poreh jeh part tah aceh setah hocceh dynamic part
+        element: <UserDetails />,
+        // loader:({params})=>console.log(params)
+        loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`)
       },
     ],
   },
