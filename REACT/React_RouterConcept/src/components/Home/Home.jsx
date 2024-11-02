@@ -1,8 +1,10 @@
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import Header from "../Header/Header";
 import Fotter from "../Fotter/Fotter";
 const Home = () => {
     const navigation = useNavigation();
+    const location=useLocation()
+    console.log(location);
     return (
         <div>
             <Header></Header>
