@@ -1,6 +1,7 @@
 
 import './App.css'
-import UseRefForm from './Components/UseRefForm/UseRefForm'
+import HookForm from './Components/HookForm/HookForm'
+// import UseRefForm from './Components/UseRefForm/UseRefForm'
 // import Form from './Components/Form/Form'
 // import StatrForm from './Components/StateForm/StateForm'
 
@@ -12,7 +13,8 @@ function App() {
       <h1>hello app</h1>
       {/* <Form></Form> */}
       {/* <StatrForm></StatrForm> */}
-      <UseRefForm></UseRefForm>
+      {/* <UseRefForm></UseRefForm> */}
+      <HookForm></HookForm>
     </>
   )
 }
