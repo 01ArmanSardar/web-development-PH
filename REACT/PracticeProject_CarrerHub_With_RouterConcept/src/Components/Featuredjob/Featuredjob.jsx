@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 // import money.png from ''
 const Featuredjob = ({job}) => {
-    console.log(job);
-    const {logo,company_name,job_title,remote_or_onsite,location,job_type,salary}=job
+    // console.log(job);
+    const {id,logo,company_name,job_title,remote_or_onsite,location,job_type,salary}=job
     return (
         <div className="card bg-base-100  shadow-xl">
         <figure>
@@ -25,7 +26,8 @@ const Featuredjob = ({job}) => {
             <img src="src\assets\icons\money.png" alt="" /> <p>{salary}</p>
           </div>
           <div className="card-actions ">
-          <button className="btn btn-info">Details</button>
+            <Link to={`/jobDetails/${id}`}><button className="btn btn-info">Details</button></Link>
+          
           </div>
         </div>
       </div>
