@@ -7,11 +7,11 @@ const JobDetails = () => {
     const jobs = useLoaderData()
     const { id } = useParams()
     const intid = parseInt(id)
-    const job = jobs.find(job => job.id == intid)
+    const job = jobs.find(job => job.id === intid)
 
     const HandelApply=()=>{
         toast("Applied Complete");
-        saveJobApplication(id)
+        saveJobApplication(intid)
     }
     return (
         <div>
