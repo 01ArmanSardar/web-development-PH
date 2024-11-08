@@ -1,7 +1,12 @@
+import Home from "../Home/Home";
+import { Outlet } from "react-router-dom";
+import Header from "../Header/Header";
 const Root = () => {
     return (
         <div>
-            <h1>hello root</h1>
+            <Header></Header>
+            <Outlet></Outlet>
+           {/* <Home></Home> */}
         </div>
     );
 };
