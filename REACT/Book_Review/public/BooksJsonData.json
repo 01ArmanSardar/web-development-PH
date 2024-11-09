@@ -1,0 +1,81 @@
+[
+    {
+      "bookId": 1,
+      "bookName": "The Silent Patient",
+      "author": "Alex Michaelides",
+      "image": "https://example.com/images/silent-patient.jpg",
+      "review": "A gripping psychological thriller that keeps you on edge until the very last page. The twist is both unexpected and brilliant.",
+      "totalPages": 336,
+      "rating": 4.3,
+      "category": "Thriller",
+      "tags": ["Suspense", "Psychological"],
+      "publisher": "Celadon Books",
+      "yearOfPublishing": 2019
+    },
+    {
+      "bookId": 2,
+      "bookName": "Educated",
+      "author": "Tara Westover",
+      "image": "https://example.com/images/educated.jpg",
+      "review": "A powerful memoir of resilience and self-discovery. Tara’s journey from a restrictive background to achieving a doctorate is inspiring.",
+      "totalPages": 352,
+      "rating": 4.7,
+      "category": "Memoir",
+      "tags": ["Inspiration", "Biography"],
+      "publisher": "Random House",
+      "yearOfPublishing": 2018
+    },
+    {
+      "bookId": 3,
+      "bookName": "Where the Crawdads Sing",
+      "author": "Delia Owens",
+      "image": "https://example.com/images/where-crawdads-sing.jpg",
+      "review": "A beautifully written story that combines mystery with stunning depictions of nature. Kya’s story is heartfelt and unforgettable.",
+      "totalPages": 384,
+      "rating": 4.5,
+      "category": "Fiction",
+      "tags": ["Mystery", "Nature"],
+      "publisher": "G.P. Putnam's Sons",
+      "yearOfPublishing": 2018
+    },
+    {
+      "bookId": 4,
+      "bookName": "Becoming",
+      "author": "Michelle Obama",
+      "image": "https://example.com/images/becoming.jpg",
+      "review": "An intimate and uplifting look into Michelle Obama’s life. Her journey is one of hope, resilience, and inspiration.",
+      "totalPages": 448,
+      "rating": 4.8,
+      "category": "Autobiography",
+      "tags": ["Inspiration", "Biography"],
+      "publisher": "Crown Publishing Group",
+      "yearOfPublishing": 2018
+    },
+    {
+      "bookId": 5,
+      "bookName": "Atomic Habits",
+      "author": "James Clear",
+      "image": "https://example.com/images/atomic-habits.jpg",
+      "review": "A practical guide to building good habits and breaking bad ones. Clear’s insights are simple yet transformative.",
+      "totalPages": 320,
+      "rating": 4.6,
+      "category": "Self-help",
+      "tags": ["Productivity", "Psychology"],
+      "publisher": "Penguin Random House",
+      "yearOfPublishing": 2018
+    },
+    {
+      "bookId": 6,
+      "bookName": "The Night Circus",
+      "author": "Erin Morgenstern",
+      "image": "https://example.com/images/night-circus.jpg",
+      "review": "A magical, enchanting story set in a circus that defies all logic. Morgenstern’s writing pulls you into a mesmerizing world.",
+      "totalPages": 512,
+      "rating": 4.2,
+      "category": "Fantasy",
+      "tags": ["Magic", "Adventure"],
+      "publisher": "Doubleday",
+      "yearOfPublishing": 2011
+    }
+  ]
+  
