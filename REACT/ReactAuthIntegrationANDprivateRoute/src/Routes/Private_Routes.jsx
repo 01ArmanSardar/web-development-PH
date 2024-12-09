@@ -4,7 +4,10 @@ import { Navigate } from 'react-router-dom';
 
 const Private_Routes = ({children}) => {
 
-    const {user}=useContext(AuthContext)
+    const {user,loading}=useContext(AuthContext)
+    if(loading){
+        return <span className="loading loading-spinner text-success"></span>
+    }
     if (user){
         return children
     }
