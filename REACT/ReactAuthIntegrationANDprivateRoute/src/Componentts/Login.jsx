@@ -1,10 +1,11 @@
 
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Login = () => {
     const { SigninUSer } = useContext(AuthContext)
+    const navigate=useNavigate()
     const HandelLogin = (e) => {
         console.log("login submit");
         e.preventDefault()
@@ -16,6 +17,8 @@ const Login = () => {
         SigninUSer(email, password)
             .then(result => { console.log(result.user) })
             .catch(err => { console.log(err) })
+            e.target.reset()
+            navigate('/Profile')
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
