@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Login = () => {
-    const {SigninUSer}=useContext(AuthContext)
+    const { SigninUSer } = useContext(AuthContext)
     const HandelLogin = (e) => {
         console.log("login submit");
         e.preventDefault()
-       const name= e.target.name.value
-         const email=   e.target.email.value
-          const password=  e.target.password.value
-            console.log(name,email,password);
-console.log(typeof(SigninUSer));
-            SigninUSer(email,password)
-            .then(result=>{console.log(result.user)})
-            .catch(err=>{console.log(err)})
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const password = e.target.password.value
+        console.log(name, email, password);
+        console.log(typeof (SigninUSer));
+        SigninUSer(email, password)
+            .then(result => { console.log(result.user) })
+            .catch(err => { console.log(err) })
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -55,7 +55,7 @@ console.log(typeof(SigninUSer));
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    <p>new ?<Link to={'/Register'}> <button  className="btn btn-active btn-link" >Register</button></Link ></p>
+                    <p>new ?<Link to={'/Register'}> <button className="btn btn-active btn-link" >Register</button></Link ></p>
                 </div>
             </div>
         </div>
