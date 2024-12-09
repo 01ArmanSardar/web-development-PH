@@ -1,20 +1,30 @@
 
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider';
 
 const Register = () => {
+    const { CreateUSer } = useContext(AuthContext)
     const HandelRegister = (e) => {
         console.log("register submit");
         e.preventDefault()
-       const name= e.target.name.value
-         const email=   e.target.email.value
-          const password=  e.target.password.value
-            console.log(name,email,password);
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const password = e.target.password.value
+        console.log(name, email, password);
+        console.log(typeof(CreateUSer))
+        // console.log(authinfo);
+        CreateUSer(email, password)
+            .then(result => { console.log(result.user) })
+            .catch(error => console.log(error.message))
+
+
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Register</h1>
                     <p className="py-6">
                         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                         quasi. In deleniti eaque aut repudiandae et a id nisi.
@@ -48,7 +58,7 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
-                    <p>alReady have a account?<Link to={'/Login'}> <button  className="btn btn-active btn-link" >login</button></Link ></p>
+                    <p>alReady have a account?<Link to={'/Login'}> <button className="btn btn-active btn-link" >login</button></Link ></p>
                 </div>
             </div>
         </div>
