@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Header from "../Shared/Header/Header";
 import LeftSide from "../Shared/LeftSideNav/LeftSide";
 import Navbar from "../Shared/Navbar/Navbar";
 import RightSide from "../Shared/RightSideNav/RightSide";
 import BrekingNews from "./BrekingNews";
 import NewsCard from "./NewsCard";
-// import { data } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+
 
 
 const Home = () => {
@@ -16,6 +17,8 @@ const Home = () => {
             .then(data => SetNews(data))
 
     }, [])
+    // const newss=useLoaderData()
+    console.log('i am in homme Component', newss);
     return (
 
         <div>
@@ -30,7 +33,7 @@ const Home = () => {
                 <div className="col-span-2 mx-auto">
 
                     {
-                        newss.map(news=><NewsCard key={news.id} news={news}></NewsCard>)
+                        newss.map(news => <NewsCard key={news._id} news={news}></NewsCard>)
                     }
                 </div>
                 <div className="border">
