@@ -10,14 +10,14 @@ import { useLoaderData } from "react-router-dom";
 
 
 const Home = () => {
-    const [newss, SetNews] = useState([])
-    useEffect(() => {
-        fetch('news.json')
-            .then(res => res.json())
-            .then(data => SetNews(data))
+    // const [newss, SetNews] = useState([])
+    // useEffect(() => {
+    //     fetch('news.json')
+    //         .then(res => res.json())
+    //         .then(data => SetNews(data))
 
-    }, [])
-    // const newss=useLoaderData()
+    // }, [])
+    const newss=useLoaderData()
     console.log('i am in homme Component', newss);
     return (
 

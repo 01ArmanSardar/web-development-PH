@@ -16,12 +16,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        // loader: () => fetch('/news.json'),
+        loader: () => fetch('/news.json'),
       },
       {
         path: '/NewsDetails/:id',
         element: <PrivateRoute> <NewsDetails></NewsDetails> </PrivateRoute>,
-        // loader: () => fetch('/news.json'),
+        loader: ({params}) => fetch(`http://localhost:5173/NewsDetails/${params.id}`),
 
       },
       {
