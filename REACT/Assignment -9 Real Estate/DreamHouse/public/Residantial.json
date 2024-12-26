@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Modern Family Home",
+      "segment_name": "Residential",
+      "image": "https://example.com/images/modern-family-home.jpg",
+      "description": "A spacious family home with a modern design, located in a quiet neighborhood.",
+      "price": "$350,000",
+      "status": "sale",
+      "area": "2000 sq ft",
+      "location": "123 Oakwood Drive, Springfield",
+      "facilities": ["Living Room", "Swimming Pool", "Kitchen"],
+      "button_text": "View Property"
+    },
+    {
+      "id": 2,
+      "estate_title": "Luxury Apartment",
+      "segment_name": "Residential",
+      "image": "https://example.com/images/luxury-apartment.jpg",
+      "description": "An elegant apartment in the city center with breathtaking views and modern amenities.",
+      "price": "$2,500/month",
+      "status": "rent",
+      "area": "1200 sq ft",
+      "location": "456 Downtown Avenue, Metropolis",
+      "facilities": ["Living Room", "Balcony", "Kitchen"],
+      "button_text": "View Property"
+    },
+    {
+      "id": 3,
+      "estate_title": "Cozy Cottage",
+      "segment_name": "Residential",
+      "image": "https://example.com/images/cozy-cottage.jpg",
+      "description": "A charming cottage in the countryside, perfect for a weekend getaway.",
+      "price": "$150,000",
+      "status": "sale",
+      "area": "1000 sq ft",
+      "location": "789 Green Valley Road, Countryside",
+      "facilities": ["Living Room", "Garden", "Kitchen"],
+      "button_text": "View Property"
+    },
+    {
+      "id": 4,
+      "estate_title": "Beachside Villa",
+      "segment_name": "Residential",
+      "image": "https://example.com/images/beachside-villa.jpg",
+      "description": "A luxurious villa by the beach with stunning ocean views and modern facilities.",
+      "price": "$5,000/month",
+      "status": "rent",
+      "area": "3000 sq ft",
+      "location": "101 Oceanfront Drive, Seaview",
+      "facilities": ["Living Room", "Swimming Pool", "Kitchen"],
+      "button_text": "View Property"
+    },
+    {
+      "id": 5,
+      "estate_title": "Suburban Home",
+      "segment_name": "Residential",
+      "image": "https://example.com/images/suburban-home.jpg",
+      "description": "A cozy home in the suburbs with a large backyard and modern features.",
+      "price": "$400,000",
+      "status": "sale",
+      "area": "2500 sq ft",
+      "location": "321 Maple Street, Suburbia",
+      "facilities": ["Living Room", "Garage", "Kitchen"],
+      "button_text": "View Property"
+    }
+  ]
+  
