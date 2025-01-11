@@ -7,7 +7,9 @@ import Pic5 from "../../../public/pexels-christa-grover-977018-2121121.jpg"
 import Pic6 from "../../../public/pexels-lina-3639540.jpg"
 import './Home.css'
 import { useEffect, useState } from "react";
+// import { FaSortAmountDownAlt } from "react-icons/fa";
 import SingleHouse from "./SingleHouse";
+import 'animate.css';
 
 const Home = () => {
     const [Houses,SetHouses]=useState([])
@@ -35,7 +37,7 @@ const Home = () => {
             <section className="Estates">
 
                 <div className="p-5">
-                    <h1 className="p-8 text-center text-5xl">Dream Here</h1>
+                    <h1 className="p-8 text-center text-lime-500 text-5xl font-bold font-mono animate__animated animate__jello animate__slower  animate__infinite">Dream In Below </h1>
                     
 
 

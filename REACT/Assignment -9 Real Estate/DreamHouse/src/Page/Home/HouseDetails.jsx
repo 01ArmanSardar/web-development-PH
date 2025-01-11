@@ -1,13 +1,15 @@
-
+import { useLoaderData } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import { IoPricetags } from "react-icons/io5";
 import { IoLocationSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
-const SingleHouse = ({ house }) => {
+import Marquee from "react-fast-marquee";
 
+const HouseDetails = () => {
+    const house = useLoaderData()
+    console.log(house);
     return (
-        <div className="grid-cols-1">
-            <div className="card bg-base-100  shadow-xl">
+        <div className=" w-1/4 mx-auto p-1">
+            <div className=" card bg-base-100  shadow-xl">
                 <figure>
                     <img className="w-full"
                         src={house.image}
@@ -25,10 +27,13 @@ const SingleHouse = ({ house }) => {
                     </div>
 
                     <p>{house.description}</p>
-                    {/* <div className="card-actions ">
-                        {
-                            house.facilities.map(facilitie => <div key={house.id} className="badge badge-outline">{facilitie}</div>)
-                        }
+                    <div className="card-actions ">
+                        <Marquee pauseOnHover="true" gradient="true" >
+                            {
+                                house.facilities.map(facilitie => <div key={house.id} className="badge badge-outline"><strong className="text-purple-900">{facilitie}</strong></div>)
+                            }
+                        </Marquee>
+
                     </div>
                     <div className="flex">
                         <IoPricetags />
@@ -40,12 +45,12 @@ const SingleHouse = ({ house }) => {
                             house.location
                         }
 
-                    </div> */}
-                    <button className="btn btn-outline btn-info"> <Link to={`/houses/${house.id}`}>{house.button_text}</Link> </button>
+                    </div>
+                    <button className="btn btn-outline btn-info"> buy now</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default SingleHouse;
+export default HouseDetails;
