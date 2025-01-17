@@ -11,25 +11,24 @@ const AddCoffe = () => {
         const category = form.category.value
         const details = form.details.value
         const photo = form.photo.value
-        const CoffeObject={name, chef, supplier, taste, category, details, photo};
+        const CoffeObject = { name, chef, supplier, taste, category, details, photo };
         console.log(CoffeObject);
 
-        fetch('http://localhost:5000/coffe',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json',
-            
+        fetch('http://localhost:5000/coffe', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+
             },
-            body:JSON.stringify(CoffeObject)
+            body: JSON.stringify(CoffeObject)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if (data.acknowledged==true)
-            {
-alert('your coffe added in database succesfullly')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged == true) {
+                    alert('your coffe added in database succesfullly')
+                }
+            })
     }
     return (
 
