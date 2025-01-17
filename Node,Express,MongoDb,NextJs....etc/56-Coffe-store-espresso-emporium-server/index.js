@@ -34,16 +34,23 @@ async function run() {
     //     content: "this is good cofffe okkkkkkkkkkk",
     //   }
     //   const result = await coffeCollection.insertOne(doc);
+    const Coffedatabase = client.db("1Coffedb");
+      const CoffeCollection = Coffedatabase.collection("CofffeCollection");
     app.post('/coffe', async (req, res) => {
 
       const Newcoffe = req.body
-      const Coffedatabase = client.db("1Coffedb");
-      const CoffeCollection = Coffedatabase.collection("CofffeCollection");
+      
       console.log(Newcoffe, 'in index.js file coffe added api');
 
       const result = await CoffeCollection.insertOne(Newcoffe);
       res.send(result)
 
+    })
+
+    app.get('/coffe',async(req,res)=>{
+      const cursor =CoffeCollection.find()
+      const result =await cursor.toArray()
+      res.send(result)
     })
 
 
