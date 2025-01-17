@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express()
 const port = process.env.port || 5000;
 
@@ -35,21 +35,54 @@ async function run() {
     //   }
     //   const result = await coffeCollection.insertOne(doc);
     const Coffedatabase = client.db("1Coffedb");
-      const CoffeCollection = Coffedatabase.collection("CofffeCollection");
+    const CoffeCollection = Coffedatabase.collection("CofffeCollection");
     app.post('/coffe', async (req, res) => {
 
       const Newcoffe = req.body
-      
+
       console.log(Newcoffe, 'in index.js file coffe added api');
 
       const result = await CoffeCollection.insertOne(Newcoffe);
       res.send(result)
 
     })
+    app.delete('/coffe/:id', async (req, res) => {
+      const id = req.params.id
+      const query = { _id: new ObjectId(id) }
+      const result = await CoffeCollection.deleteOne(query)
+      res.send(result)
+    })
 
-    app.get('/coffe',async(req,res)=>{
-      const cursor =CoffeCollection.find()
-      const result =await cursor.toArray()
+    app.get('/coffe/:id', async (req, res) => {
+      const id = req.params.id
+      const query = { _id: new ObjectId(id) }
+      const result = await CoffeCollection.findOne(query)
+      res.send(result)
+    })
+
+    app.get('/coffe', async (req, res) => {
+      const cursor = CoffeCollection.find()
+      const result = await cursor.toArray()
+      res.send(result)
+    })
+
+    app.put('/coffe/:id', async (req, res) => {
+      const id = req.params.id
+      const filter = { _id: new ObjectId(id) }
+      const UpdateCoffe = req.body
+      const coffe = {
+        $set: {
+          name: UpdateCoffe.name,
+          chef: UpdateCoffe.chef,
+          supplier: UpdateCoffe.supplier,
+          taste: UpdateCoffe.taste,
+          category: UpdateCoffe.category,
+          details: UpdateCoffe.details,
+          photo: UpdateCoffe.photo
+        },
+
+      };
+      const result = await CoffeCollection.updateOne(filter, coffe)
       res.send(result)
     })
 
