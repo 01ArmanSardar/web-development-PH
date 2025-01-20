@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express()
 app.use(cors())
 require('dotenv').config()
@@ -29,18 +29,39 @@ async function run() {
 
         const database = client.db("userdb");
         const UserCollection = database.collection("User");
-        const doc = {
-            title: 'arman22'
-        }
-        const result = await UserCollection.insertOne(doc)
+        app.post('/user', async (req, res) => {
+            const user = req.body
+            const result = await UserCollection.insertOne(user)
+            res.send(result)
+
+        })
+
+        app.get('/user', async (req, res) => {
+            const filter = UserCollection.find()
+            const result = await filter.toArray()
+            res.send(result)
+        })
+        app.delete('/user/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: new ObjectId(id) }
+            const result = await UserCollection.deleteOne(query)
+            res.send(result)
+        })
+
+
+
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     }
+    //     finally{
+    // console.log('ok');
+    //     }
     catch (err) {
-        console.log(`error occure ${err}`);
+        // console.log(`error occure ${err}`);
     }
 }
 run().catch(console.dir);
+
 
 
 app.get('/', (req, res) => {
