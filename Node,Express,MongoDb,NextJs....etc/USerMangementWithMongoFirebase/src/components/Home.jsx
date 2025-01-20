@@ -1,6 +1,11 @@
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 
 const Home = () => {
+    const LoadedUsers = useLoaderData()
+    const [users, SetUsers] = useState(LoadedUsers)
+
     return (
         <div>
             <h1 className="text-5xl ">this is home </h1>
@@ -12,35 +17,25 @@ const Home = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Action</th>
+
                             <th>Created on</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                            <td>*</td>
-                        </tr>
-                        {/* row 2 */}
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                            <td>*</td>
-                        </tr>
-                        {/* row 3 */}
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                            <td>*</td>
-                        </tr>
+
+                        {
+                            users.map(user => 
+                                <tr key={user._id}>
+                                <th></th>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.CreationTime}</td>
+                                <td><button>edit</button> <button>Delete</button> </td>
+                            </tr>
+                            )
+                        }
+
                     </tbody>
                 </table>
             </div>
