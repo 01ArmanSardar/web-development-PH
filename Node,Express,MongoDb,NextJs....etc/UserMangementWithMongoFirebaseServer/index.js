@@ -36,6 +36,10 @@ async function run() {
 
         })
 
+        app.get('/users',(req,res)=>{
+            res.send('this check users')
+        })
+
         app.get('/user', async (req, res) => {
             const filter = UserCollection.find()
             const result = await filter.toArray()
