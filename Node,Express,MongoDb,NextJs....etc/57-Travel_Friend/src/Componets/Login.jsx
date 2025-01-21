@@ -1,6 +1,38 @@
-
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const Login = () => {
+const {UserLogin}=useContext(AuthContext)
+    const HandelLoging=(e)=>{
+        e.preventDefault(e)
+        const form=e.target
+        const email=form.email.value
+        const password =form.password.value
+        console.log(email,password);
+    UserLogin(email,password)
+    .then(result=>{
+        console.log(result.user);
+        Swal.fire({
+            icon: "success",
+            title: "Welcome",
+            text: "Login SuccesFully",
+            
+          });
+    })
+    .catch(err=>{
+        console.log(err);
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Your provided info is incorrect ",
+            
+          });
+    
+    })
+
+    }
     return (
         <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -12,20 +44,21 @@ const Login = () => {
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={HandelLoging} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input name="email" type="email" placeholder="email" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
+                <input name="password" type="password" placeholder="password" className="input input-bordered" required />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                  {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
+                  <p>new ? <Link className="font-semibold text-sky-950" to={'/register'}>Register here</Link></p>
                 </label>
               </div>
               <div className="form-control mt-6">
