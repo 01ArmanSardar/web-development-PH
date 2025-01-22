@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
@@ -75,7 +75,7 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {/* {user?email:''} */}
-                {user ? <a className="btn" onClick={HandelLogout}>Logout</a> : <a className="btn">Login</a>}
+                {user ? <a className="btn" onClick={HandelLogout}>Logout</a> : <Link to={'/login'} className="btn">Login</Link>}
                 {/* <a className="btn">Login</a> */}
             </div>
         </div>
