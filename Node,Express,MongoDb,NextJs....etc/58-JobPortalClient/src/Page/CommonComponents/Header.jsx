@@ -5,14 +5,12 @@ import { Authcontext } from "../../Context/AuthContext/AuthContextProvider";
 
 const Header = () => {
 
-    const {user,LogOutUSer}=useContext(Authcontext)
+    const { user, LogOutUSer } = useContext(Authcontext)
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/register'}>Register</NavLink></li>
         <li><NavLink to={'/login'}>Login</NavLink></li>
-        <li><NavLink to={'#'}>##$</NavLink></li>
-
-
+        <li><NavLink to={'/Myapplications'}>Myapplication</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -51,13 +49,13 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user? <> <button onClick={LogOutUSer} className="btn btn-primary">LogOut</button> </>:
-                    <>
-                      <Link to={'/register'}> <button className="btn btn-primary">Register</button> </Link>
-                      <Link to={'/login'}><button className="btn btn-info">Login</button></Link>
-                    </>
+                    user ? <> <button onClick={LogOutUSer} className="btn btn-primary">LogOut</button> </> :
+                        <>
+                            <Link to={'/register'}> <button className="btn btn-primary">Register</button> </Link>
+                            <Link to={'/login'}><button className="btn btn-info">Login</button></Link>
+                        </>
                 }
-              
+
             </div>
         </div>
     );
