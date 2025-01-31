@@ -34,7 +34,7 @@ const HotJobCard = ({ job }) => {
 
                     </div>
                     <Link to={`/jobDetails/${_id}`}>
-                        <button className="btn btn-primary">Apply Now</button>
+                        <button className="btn btn-primary">Apply Now1</button>
                     </Link>
 
                 </div>

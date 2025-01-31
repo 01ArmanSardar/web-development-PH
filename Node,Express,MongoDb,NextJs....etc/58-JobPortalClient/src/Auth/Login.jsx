@@ -3,14 +3,14 @@ import { Authcontext } from "../Context/AuthContext/AuthContextProvider";
 import loginLotiieAnimation from '../../src/assets/Lottie/Login.json'
 import Lottie from "lottie-react";
 import GoogleLogin from "../Page/CommonComponents/GoogleLogin";
-import {  useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { LoginUSer } = useContext(Authcontext)
-    const location=useLocation()
-    const navigate=useNavigate()
-    console.log('locatED  in login page',location);
-    const from =location.state || '/';
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log('locatED  in login page', location);
+    const from = location.state || '/';
     const handelLoginFrom = (e) => {
         e.preventDefault()
         const form = e.target
@@ -49,7 +49,7 @@ const Login = () => {
                         </form>
                         <GoogleLogin></GoogleLogin>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

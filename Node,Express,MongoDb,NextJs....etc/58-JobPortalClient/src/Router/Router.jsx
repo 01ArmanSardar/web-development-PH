@@ -8,12 +8,13 @@ import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import JobDetails from "../Page/JobDetails/JobDetails";
 import PrivateROute from "./PrivateROute";
+import ApplyJOb from "../Page/JobApply/ApplyJOb";
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement: <h1> this route not implimentend</h1>,
+        // errorElement: <h1> this route not implimentend</h1>,
         children: [
             {
                 path: '/',
@@ -32,6 +33,11 @@ const Router = createBrowserRouter([
                 element: <PrivateROute><JobDetails></JobDetails></PrivateROute>,
                 loader: ({ params }) => fetch(`http://localhost:3000/jobs/${params.id}`)
 
+            },
+
+            {
+                path: '/ApplyJob/:id',
+                element: <ApplyJOb></ApplyJOb>
             }
         ]
     },
