@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 3000
 require('dotenv').config()
 
@@ -29,10 +29,46 @@ async function run() {
         await client.connect();
 
         const JobsCollection = client.db('JobPortal').collection('Jobs')
+        const JobsApplicationCollection = client.db('JobPortal').collection('JobsApplication')
 
         app.get('/jobs', async (req, res) => {
-            const cursor =JobsCollection.find()
-            const result=await cursor.toArray()
+            const cursor = JobsCollection.find()
+            const result = await cursor.toArray()
+            res.send(result)
+        })
+
+        app.get('/jobs/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: new ObjectId(id) }
+            const result = await JobsCollection.findOne(query)
+            res.send(result)
+        })
+        app.post('/ApplyJobs', async (req, res) => {
+            const applicantInfo = req.body
+            const result = await JobsApplicationCollection.insertOne(applicantInfo)
+            res.send(result)
+        })
+        app.get('/ApplyJobs', async (req, res) => {
+            const email = req.query.email
+            const filter = { ApplicantEmail: email }
+            const result = await JobsApplicationCollection.find(filter).toArray()
+            
+
+            //cheap way getting data from database
+
+            for (const Application of result) {
+                console.log(Application.job_id);
+                const query1 = { _id: new ObjectId(Application.job_id) }
+                const job = await JobsCollection.findOne(query1)
+                if (job) {
+                    Application.title = job.title
+                    Application.company = job.company
+                    Application.company_logo = job.company_logo
+                    Application.location=job.location
+
+                }
+
+            }
             res.send(result)
         })
         // Send a ping to confirm a successful connection
