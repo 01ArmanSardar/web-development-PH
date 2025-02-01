@@ -11,6 +11,8 @@ const Header = () => {
         <li><NavLink to={'/register'}>Register</NavLink></li>
         <li><NavLink to={'/login'}>Login</NavLink></li>
         <li><NavLink to={'/Myapplications'}>Myapplication</NavLink></li>
+        <li><NavLink to={'/addjob'}>Add job</NavLink></li>
+        <li><NavLink to={'/MyaddedJob'}>My added JOb</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">

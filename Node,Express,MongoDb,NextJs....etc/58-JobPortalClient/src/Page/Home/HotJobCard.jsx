@@ -30,7 +30,7 @@ const HotJobCard = ({ job }) => {
                 <div className="card-actions justify-end items-center mt-4">
 
                     <div>
-                        <p>{salaryRange.min} - {salaryRange.max} {salaryRange.currency}</p>
+                        <p>{salaryRange?.min} - {salaryRange?.max} {salaryRange?.currency}</p>
 
                     </div>
                     <Link to={`/jobDetails/${_id}`}>
