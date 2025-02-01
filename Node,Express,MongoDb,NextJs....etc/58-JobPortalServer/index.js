@@ -58,7 +58,27 @@ async function run() {
             const result = await JobsCollection.insertOne(data)
             res.send(result)
         })
+        app.get('/applyjobs/jobs/:job_id', async (req, res) => {
+            const jobid = req.params.job_id
+            const query = { job_id: jobid }
+            const result = await JobsApplicationCollection.find(query).toArray()
+            res.send(result)
+        }
+        )
 
+        app.patch('/ApplyJobs/:id', async (req, res) => {
+            const id = req.params.id
+            const filter = { _id: new ObjectId(id) }
+            const data = req.body
+            const updateDoc = {
+                $set: {
+                    status: data
+                },
+            };
+            const result = await JobsApplicationCollection.updateOne(filter, updateDoc)
+            res.send(result)
+
+        })
         app.get('/ApplyJobs', async (req, res) => {
             const email = req.query.email
             const filter = { ApplicantEmail: email }
