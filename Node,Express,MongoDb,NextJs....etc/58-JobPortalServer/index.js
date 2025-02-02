@@ -1,12 +1,19 @@
 const express = require('express')
 const cors = require('cors')
+const jwt = require('jsonwebtoken')
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 3000
 require('dotenv').config()
-
+const cookieParser = require('cookie-parser')
 const app = express()
-app.use(cors())
+app.use(cors(
+    {
+        origin: ['http://localhost:5173'],
+        credentials: true
+    }
+))
 app.use(express.json())
+app.use(cookieParser())
 
 
 
@@ -82,6 +89,7 @@ async function run() {
         app.get('/ApplyJobs', async (req, res) => {
             const email = req.query.email
             const filter = { ApplicantEmail: email }
+            console.log('cokkies ok',req.cookies);
             const result = await JobsApplicationCollection.find(filter).toArray()
 
 
@@ -101,6 +109,19 @@ async function run() {
 
             }
             res.send(result)
+        })
+        //auth realted apis 
+        app.post('/jwt', async (req, res) => {
+            const user = req.body;
+            const token = jwt.sign(user, process.env.JWT_ACCESS_TOKEN, { expiresIn: '1h' })
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: false //only for localhost cause this is http not https ,for production not use secure false
+
+            })
+                .send({ success: true })
+
+
         })
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
