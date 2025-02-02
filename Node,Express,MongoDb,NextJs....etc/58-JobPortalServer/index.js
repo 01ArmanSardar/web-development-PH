@@ -6,6 +6,22 @@ const port = process.env.PORT || 3000
 require('dotenv').config()
 const cookieParser = require('cookie-parser')
 const app = express()
+
+const verifyToken = (req, res, next) => {
+    const token = req?.cookies?.token
+    if (!token) {
+        return res.status(401).send({ message: 'UnAuthorized access' })
+
+    }
+    jwt.verify(token, process.env.JWT_ACCESS_TOKEN, (err, decode) => {
+        if (err) {
+            return res.status(401).send({ message: 'unAuthroized access' })
+        }
+        req.user = decode
+        next()
+    })
+
+}
 app.use(cors(
     {
         origin: ['http://localhost:5173'],
@@ -86,10 +102,15 @@ async function run() {
             res.send(result)
 
         })
-        app.get('/ApplyJobs', async (req, res) => {
+        app.get('/ApplyJobs', verifyToken, async (req, res) => {
             const email = req.query.email
             const filter = { ApplicantEmail: email }
-            console.log('cokkies ok',req.cookies);
+
+            if (req.user.email !== req.query.email)
+            {
+                return res.status(403).send({message:'for acess'})
+            }
+                console.log('cokkies ok', req.cookies);
             const result = await JobsApplicationCollection.find(filter).toArray()
 
 
