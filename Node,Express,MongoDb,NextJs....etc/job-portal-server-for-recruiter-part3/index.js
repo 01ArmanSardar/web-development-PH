@@ -12,6 +12,20 @@ app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true
 }));
+const verifyToken = (req, res, next) => {
+    const token = req.cookies?.token
+    if (!token) {
+        return res.status(401).send({ message: 'unAuthorized Access' })
+    }
+    jwt.verify(token, process.env.JWT_ACCESS_TOKEN, (err, decoded) => {
+        if (err) {
+            return res.status(401).send({ message: 'UnAuthorized access' })
+        }
+        req.user = decoded
+        next()
+    })
+
+}
 app.use(express.json());
 
 const uri = process.env.URI;
@@ -65,9 +79,13 @@ async function run() {
 
         // job application apis
         // get all data, get one data, get some data [o, 1, many]
-        app.get('/job-application', async (req, res) => {
+        app.get('/job-application', verifyToken, async (req, res) => {
             const email = req.query.email;
             const query = { applicant_email: email }
+
+            if (req.user.email !== req.query.email) {
+                return res.status(403).send({ message: "frobidden access" })
+            }
             const result = await jobApplicationCollection.find(query).toArray();
 
             // fokira way to aggregate data
@@ -151,13 +169,13 @@ async function run() {
             })
                 .send({ success: true })
         })
-        
+
         app.post('/logout', (req, res) => {
             res.clearCookie('token', {
                 httpOnly: true,
                 secure: false
             })
-            .send({success:true})
+                .send({ success: true })
         })
 
 
