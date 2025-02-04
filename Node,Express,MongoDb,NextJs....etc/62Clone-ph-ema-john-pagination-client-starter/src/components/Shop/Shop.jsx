@@ -3,11 +3,37 @@ import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fa
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
+    const { count } = useLoaderData()
+    const [CurrentPage, SetCurrentPage] = useState(0)
+    const [itemperPAge, SetitemperPAge] = useState(10)
+    const NumberofPAge = Math.ceil(count / itemperPAge)
+    const handelPrevPage=()=>{
+        if (CurrentPage>0){
+           SetCurrentPage(CurrentPage-1)
+        }
+    }
+    const handelNextPage=()=>{
+        if (CurrentPage < pages.length-1){
+            SetCurrentPage(CurrentPage+1)
+        }
+    }
+    const pages = []
+    for (let i = 0; i < NumberofPAge; i++) {
+        pages.push(i)
+    }
+    console.log(pages);
+    const HandelProductperage = (e) => {
+
+        const value = parseInt(e.target.value)
+        console.log(value);
+        SetitemperPAge(value)
+        SetCurrentPage(0)
+    }
 
     useEffect(() => {
         fetch('http://localhost:5000/products')
@@ -34,6 +60,8 @@ const Shop = () => {
         // step 5: set the cart
         setCart(savedCart);
     }, [products])
+
+
 
     const handleAddToCart = (product) => {
         // cart.push(product); '
@@ -81,6 +109,33 @@ const Shop = () => {
                         <button className='btn-proceed'>Review Order</button>
                     </Link>
                 </Cart>
+            </div >
+            <div className='pagination'>
+                <p>number of page :{CurrentPage}</p>
+                <button onClick={handelPrevPage}>prev</button>
+                {
+
+                    pages.map(page =>
+                        
+                        <button
+                            className={CurrentPage === page && 'selected'}
+                            onClick={() => SetCurrentPage(page)}
+
+                        >
+
+                            {page}
+                        </button>)
+                }
+                <button onClick={handelNextPage}>next</button>
+                <select name="" value={itemperPAge} id="" onChange={HandelProductperage}>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+
+                </select>
+
             </div>
         </div>
     );
