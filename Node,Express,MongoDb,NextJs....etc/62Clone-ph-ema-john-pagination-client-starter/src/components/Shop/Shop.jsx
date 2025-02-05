@@ -12,14 +12,14 @@ const Shop = () => {
     const [CurrentPage, SetCurrentPage] = useState(0)
     const [itemperPAge, SetitemperPAge] = useState(10)
     const NumberofPAge = Math.ceil(count / itemperPAge)
-    const handelPrevPage=()=>{
-        if (CurrentPage>0){
-           SetCurrentPage(CurrentPage-1)
+    const handelPrevPage = () => {
+        if (CurrentPage > 0) {
+            SetCurrentPage(CurrentPage - 1)
         }
     }
-    const handelNextPage=()=>{
-        if (CurrentPage < pages.length-1){
-            SetCurrentPage(CurrentPage+1)
+    const handelNextPage = () => {
+        if (CurrentPage < pages.length - 1) {
+            SetCurrentPage(CurrentPage + 1)
         }
     }
     const pages = []
@@ -36,10 +36,10 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?page=${CurrentPage}&size=${itemperPAge}`)
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, []);
+    }, [CurrentPage, itemperPAge]);
 
     useEffect(() => {
         const storedCart = getShoppingCart();
@@ -116,7 +116,7 @@ const Shop = () => {
                 {
 
                     pages.map(page =>
-                        
+
                         <button
                             className={CurrentPage === page && 'selected'}
                             onClick={() => SetCurrentPage(page)}
