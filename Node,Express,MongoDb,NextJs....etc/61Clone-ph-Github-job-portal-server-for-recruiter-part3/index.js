@@ -54,7 +54,8 @@ async function run() {
         // jobs related APIs
         app.get('/jobs', async (req, res) => {
             const email = req.query.email;
-            const sort = req.query?.sort
+            const sort = req.query?.sort;
+            const search = req.query?.search;
             let query = {};
             let sortQuery = {}
             if (sort == 'true') {
@@ -63,6 +64,9 @@ async function run() {
 
             if (email) {
                 query = { hr_email: email }
+            }
+            if (search) {
+                query.location = { $regex: search, $options: 'i' }
             }
             const cursor = jobsCollection.find(query).sort(sortQuery);
             const result = await cursor.toArray();
