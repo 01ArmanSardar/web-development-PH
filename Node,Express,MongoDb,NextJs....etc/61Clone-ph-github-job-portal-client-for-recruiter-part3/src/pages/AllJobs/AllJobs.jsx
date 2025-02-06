@@ -6,8 +6,10 @@ import HotJobCard from "../Home/HotJobCard";
 
 const AllJobs = () => {
     const [sort,Setsort]=useState(false)
-    const { jobs } = useJob(sort)
+    const [search,SetSearch]=useState('')
+    const { jobs } = useJob(sort,search)
     console.log(jobs);
+    console.log(search);
     
     console.log(sort);
     const { loading } = useAuth()
@@ -25,8 +27,9 @@ const AllJobs = () => {
                 </div></>
             } */}
             <h1>All jobs here</h1>
-            <div className="bg-base-200">
+            <div className="bg-base-200 flex items-center gap-3">
             <button onClick={()=>Setsort(!sort)} className={sort? `btn btn-success`: `btn btn-primary`}>{sort?`sorted by salary`:`Sort by Salary`}</button>
+           <input onKeyUp={(e)=>SetSearch(e.target.value)} type="text"  placeholder="search by location is here"/>
             </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                     {
