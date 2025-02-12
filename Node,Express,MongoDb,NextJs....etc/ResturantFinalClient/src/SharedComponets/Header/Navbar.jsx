@@ -5,7 +5,7 @@ const Navbar = () => {
 
     const links = <>
         <NavLink className={"mx-2"} to={'/'}>Home</NavLink>
-        <NavLink className={"mx-2"}  to={'/'}>Home</NavLink>
+        <NavLink className={"mx-2"}  to={'/menu'}>Menu</NavLink>
         <NavLink className={"mx-2"} to={'/'}>Home</NavLink>
         <NavLink className={"mx-2"} to={'/'}>Home</NavLink>
 
