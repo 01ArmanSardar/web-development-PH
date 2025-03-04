@@ -6,7 +6,7 @@ const Header = () => {
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/register'}>register</NavLink></li>
         <li><NavLink to={'/login'}>login</NavLink></li>
-        <li><NavLink to={'/'}>home</NavLink></li>
+        <li><NavLink to={'/appionment'}>Appionment</NavLink></li>
     </>
     return (
         <div>
