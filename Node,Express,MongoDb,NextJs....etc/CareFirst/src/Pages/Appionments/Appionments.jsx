@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from 'axios';
 
 
 const Appionments = () => {
@@ -11,11 +11,12 @@ const Appionments = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
+        const userinfo = { email, password }
         console.log(email, password);
         document.getElementById("my_modal_5").close()
-
-
-
+        axios.post('http://localhost:5000/appionments', userinfo)
+            .then((res) => { console.log(res) })
+            .catch((err) => console.log(err))
     }
 
 
@@ -36,27 +37,27 @@ const Appionments = () => {
 
                         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                             <div className="card-body">
-                                <div className="modal-action">
-                                    <form method="dialog" onSubmit={Handelform}>
-                                        <fieldset className="fieldset">
 
-                                            <label className="fieldset-label">Email</label>
-                                            <input name="email" type="email" className="input" placeholder="Email" />
-                                            <label className="fieldset-label">Password</label>
-                                            <input name="password" type="password" className="input" placeholder="Password" />
+                                <form method="dialog" onSubmit={Handelform}>
+                                    <fieldset className="fieldset">
 
-                                            <button className="btn btn-neutral mt-4">Submit</button>
+                                        <label className="fieldset-label">Email</label>
+                                        <input required name="email" type="email" className="input" placeholder="Email" />
+                                        <label className="fieldset-label">Password</label>
+                                        <input required name="password" type="password" className="input" placeholder="Password" />
 
-                                        </fieldset>
-                                    </form>
-                                </div>
+                                        <button className="btn btn-neutral mt-4">Submit</button>
+
+                                    </fieldset>
+                                </form>
+
                             </div>
                         </div>
 
 
 
 
-                        
+
 
                     </dialog>
 
