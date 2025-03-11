@@ -9,6 +9,7 @@ import Login from "../Authentication/Login/Login";
 import Appionments from "../Pages/Appionments/Appionments";
 import PrivateRoutes from "./PrivateRoutes";
 import DashBoardHOme from "../Pages/DashBoard/Home/DashBoardHOme";
+import Allusers from "../Pages/DashBoard/AllUsers/Allusers";
 
 export const router = createBrowserRouter([
     {
@@ -29,11 +30,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashBoard',
-                element:<PrivateRoutes><DashBoardHOme></DashBoardHOme></PrivateRoutes> 
+                element: <PrivateRoutes><DashBoardHOme></DashBoardHOme></PrivateRoutes>
             },
             {
                 path: '/appionment',
                 element: <PrivateRoutes><Appionments></Appionments></PrivateRoutes>
+            }
+            ,
+            {
+                path: '/Allusers',
+                element: <PrivateRoutes><Allusers></Allusers></PrivateRoutes>
             }
         ]
     },
