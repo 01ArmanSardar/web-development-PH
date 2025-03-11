@@ -9,9 +9,10 @@ const auth = getAuth(app)
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, SetUser] = useState(null)
-
+    const [loading, SetLoading] = useState(true)
 
     const createUser = (email, password) => {
+        SetLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
@@ -19,17 +20,19 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('i am in onAuthstateChanged and oveserving currentUser', currentUser);
             SetUser(currentUser)
+            SetLoading(false)
         })
         return () => { unsubscribe() }
     })
 
     const LoginUser = (email, password) => {
+        SetLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const LogoutUser = () => {
         return signOut(auth)
     }
-    const authInfo = { createUser, LoginUser, user ,LogoutUser}
+    const authInfo = { createUser, LoginUser, user, LogoutUser,loading }
     return (
 
         < AuthContext.Provider value={authInfo}>

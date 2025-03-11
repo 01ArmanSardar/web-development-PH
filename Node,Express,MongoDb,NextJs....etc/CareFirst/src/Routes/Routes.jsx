@@ -7,6 +7,8 @@ import Root from "../LayOut/Root/Root";
 import Register from "../Authentication/Register/Register";
 import Login from "../Authentication/Login/Login";
 import Appionments from "../Pages/Appionments/Appionments";
+import PrivateRoutes from "./PrivateRoutes";
+import DashBoardHOme from "../Pages/DashBoard/Home/DashBoardHOme";
 
 export const router = createBrowserRouter([
     {
@@ -26,8 +28,12 @@ export const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
+                path: '/dashBoard',
+                element:<PrivateRoutes><DashBoardHOme></DashBoardHOme></PrivateRoutes> 
+            },
+            {
                 path: '/appionment',
-                element: <Appionments></Appionments>
+                element: <PrivateRoutes><Appionments></Appionments></PrivateRoutes>
             }
         ]
     },

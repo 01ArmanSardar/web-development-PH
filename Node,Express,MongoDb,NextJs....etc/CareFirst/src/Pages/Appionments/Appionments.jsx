@@ -7,7 +7,7 @@ const Appionments = () => {
 
 
     return (
-        <div>
+        <div className="h-screen">
 
             <div className="p-10">
                 <h1 className="text-center text-2xl font-bold">please select a service </h1>

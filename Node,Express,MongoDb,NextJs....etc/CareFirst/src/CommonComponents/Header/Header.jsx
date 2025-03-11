@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Authentication/AuthProvider/AuthProvider";
 
 
@@ -17,8 +17,10 @@ const Header = () => {
         {
             user ? <li><NavLink onClick={HandelLogout}>logout</NavLink></li> : <li><NavLink to={'/login'}>login</NavLink></li>
         }
+        {
+            user ? <li><NavLink to={'/appionment'}>Appionment</NavLink></li> : ''
+        }
 
-        <li><NavLink to={'/appionment'}>Appionment</NavLink></li>
     </>
     return (
         <div>
@@ -49,7 +51,7 @@ const Header = () => {
                     {
                         user ? `${user.email}` : ''
                     }
-                    <a className="btn">Button</a>
+                   <Link to={'/dashBoard'}><button  className="btn btn-secondary">Dashboard</button></Link> 
                 </div>
             </div>
         </div>

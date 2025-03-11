@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import axios from "axios";
 
 
 const Register = () => {
@@ -23,8 +24,15 @@ const Register = () => {
         const password = data.password
 
         createUser(email, password)
-            .then(result => console.log(result.user))
+            .then(result => {
+                const useremail=result.user.email
+                const USERemail ={useremail}
+                console.log(USERemail);
+                axios.post(`http://localhost:5000/user`, USERemail)
+                console.log(result.user)
+            })
             .catch(error => console.log(error))
+
         reset()
 
     }
