@@ -29,12 +29,22 @@ async function run() {
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
         const AppionmentCollection = client.db('CareFistDb').collection('Appionments')
+        const USerCollection = client.db('CareFistDb').collection('Users')
 
         app.post('/appionments', async (req, res) => {
             const user = req.body
             const result = await AppionmentCollection.insertOne(user)
             res.send(result)
 
+        })
+        app.post('/user', async (req, res) => {
+            const userEmail = req.body
+            const result = await USerCollection.insertOne(userEmail)
+            res.send(result)
+        })
+        app.get('/user', async (req, res) => {
+            const result = await USerCollection.find().toArray()
+            res.send(result)
         })
     }
 
