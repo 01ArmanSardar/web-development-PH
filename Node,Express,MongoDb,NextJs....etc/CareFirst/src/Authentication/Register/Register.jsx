@@ -9,6 +9,7 @@ const Register = () => {
     const {
         register,
         handleSubmit,
+        reset,
         watch,
         formState: { errors },
     } = useForm()
@@ -24,6 +25,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => console.log(result.user))
             .catch(error => console.log(error))
+        reset()
 
     }
     return (
