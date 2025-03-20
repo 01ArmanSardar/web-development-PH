@@ -9,7 +9,10 @@ const Allusers = () => {
         })
 
     // console.log(users);
-
+    const HandelAdmin = (user) => {
+        axios.patch(`http://localhost:5000/users/admin/${user._id}`)
+            .then(res => console.log(res.data))
+    }
 
     return (
         <div>
@@ -27,12 +30,12 @@ const Allusers = () => {
                     </thead>
                     <tbody>
                         {
-                            users?.map((user,idx) =>  <tr key={idx}>
-                                    <th>{idx + 1}</th>
-                                    <td>{user?.useremail}</td>
-                                    <td><button className="btn btn-info">MakeAdmin</button></td>
-                                    <td><button className="btn btn-warning">Delete</button></td>
-                                </tr>
+                            users?.map((user, idx) => <tr key={idx}>
+                                <th>{idx + 1}</th>
+                                <td>{user?.useremail}</td>
+                                <td><button onClick={() => HandelAdmin(user)} className="btn btn-info">MakeAdmin</button></td>
+                                <td><button className="btn btn-warning">Delete</button></td>
+                            </tr>
                             )
                         }
 
